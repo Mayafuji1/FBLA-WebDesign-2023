@@ -1,0 +1,731 @@
+:root {
+    --background: #f04545;
+}
+
+body {
+    background-color: #fff9f9;
+    color: rgb(0, 0, 0);
+    font-family: quicksand;
+    margin-left: 0;
+    margin-right: 0;
+    
+}
+
+.content {
+    margin-left: 25%;
+    margin-right: 25%;
+    place-items: center;
+    top: 100%;
+    font-size: calc(10px + 1.25vmin);
+
+}
+
+h5 {
+    font-family: berkshire swash;
+    font-size: calc(15px + 3vmax);
+    margin-top: 200px;
+}
+
+.title {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+}
+
+h4 {
+    font-family: bellota text;
+    font-size: calc(12px + 1.25vmin);
+    font-weight: 900;
+}
+
+.bgimg {
+    background-image: url(../img/dalmpat.png);
+    bottom: 0;
+}
+
+/* navi style */
+
+header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+div.himg {
+    background-image: url(../img/favicont.png);
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-top: 4px;
+    
+}
+
+h1 {
+    font-family: berkshire swash;
+    font-size: calc(370 + 1vmin);
+    color: #000;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    border: 1px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: black;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content:' ';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+
+nav {
+    background: var(--background);
+    width: 100%;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out ;
+}
+
+nav a:hover {
+    color: #c0c0c0;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width:975px) {
+    .nav-toggle-label{
+   display: none;
+    }
+
+    header{
+   display: grid;
+   grid-template-columns: 1fr auto 100px minmax(600px, 3fr) 1fr;
+
+    }
+
+    .header {
+   grid-column: 2/3;
+    }
+
+    .himg {
+   grid-column: 3/4;
+    }
+
+    nav {
+   all: unset;
+   grid-column: 4/5;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+    }
+
+    nav ul {
+   display: flex;
+    }
+
+    nav li {
+   margin-left: 3em;
+   margin-bottom: 0;
+    }
+
+    nav a {
+   opacity: 1;
+   position: relative;
+    }
+
+    nav a::before {
+   content: '';
+   display: block;
+   height: 5px;
+   background: #c0c0c0;
+   position: absolute;
+   top: -.75em;
+   left: 0;
+   right: 0;
+   transform: scale(0,1);
+   transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before {
+   transform: scale(1,1);
+    }
+}
+
+
+.pets {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: minmax(100px,1fr) 300px 300px 300px 300px minmax(100px,1fr);
+    grid-template-rows: repeat(5, 300px auto auto);
+    grid-template-areas: 
+   "... pbu pca pcs pch ..."
+   "... bu capt cas che ..."
+   "... abu aca acs ach ..."
+
+   "... pdo pek pja pje ..."
+   "... dol ek  jab jel ..."
+   "... ado aek aja aje ..."
+
+   "... pju pka pko pli ..."
+   "... jul kab kod lib ..."
+   "... aju aka ako ali ..."
+
+   "... plk plu pma pmo ..."
+   "... luk lun mam mol ..."
+   "... alk alu ama amo ..."
+
+   "... poz pre pri pro ..."
+   "... oz rem rig rock ..."
+   "... aoz are ari aro ...";
+}
+
+img {
+    border-radius: 50px;
+    max-width: 225px;
+    max-height: 225px;
+}
+
+div.pbu {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pbu {grid-area: pbu;}
+.bu {grid-area: bu;}
+.abu {grid-area: abu;}
+
+div.pca {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pca {grid-area: pca;}
+.capt {grid-area:capt;}
+.aca {grid-area: aca;}
+
+div.pch {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pch {grid-area: pch;}
+.che {grid-area: che;}
+.ach {grid-area: ach;}
+
+div.pcs {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pcs {grid-area: pcs;}
+.cas {grid-area: cas;}
+.acs {grid-area: acs;}
+
+div.plu {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.plu {grid-area: plu;}
+.lun {grid-area: lun;}
+.alu {grid-area: alu;}
+
+div.plk {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+
+}
+.plk {grid-area: plk;}
+.luk {grid-area: luk;}
+.alk {grid-area: alk;}
+
+div.pdo {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pdo {grid-area: pdo;}
+.dol {grid-area: dol;}
+.ado {grid-area: ado;}
+
+div.pek {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pek {grid-area: pek;}
+.ekko {grid-area: ek;}
+.aek {grid-area: aek;}
+
+div.pja {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pja {grid-area: pja;}
+.jab {grid-area: jab;}
+.aja {grid-area: aja;}
+
+div.pje {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pje {grid-area: pje;}
+.jel {grid-area: jel;}
+.aje {grid-area: aje;}
+
+div.pju {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pju {grid-area: pju;}
+.jul {grid-area: jul;}
+.aju {grid-area: aju;}
+
+div.pka {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pka {grid-area: pka;}
+.kab {grid-area: kab;}
+.aka {grid-area: aka;}
+
+div.pko {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pko {grid-area: pko;}
+.kod {grid-area: kod;}
+.ako {grid-area: ako;}
+
+div.pli {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pli {grid-area: pli;}
+.lib {grid-area: lib;}
+.ali {grid-area: ali;}
+
+div.pma {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pma {grid-area: pma;}
+.mam {grid-area: mam;}
+.ama {grid-area: ama;}
+
+div.pju {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pju {grid-area: pju;}
+.jul {grid-area: jul;}
+.aju {grid-area: aju;}
+
+div.pmo {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pmo {grid-area: pmo;}
+.mol {grid-area: mol;}
+.amo {grid-area: amo;}
+
+div.poz {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.poz {grid-area: poz;}
+.ozzy {grid-area: oz;}
+.aoz {grid-area: aoz;}
+
+div.pre {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pre {grid-area: pre;}
+.rem {grid-area: rem;}
+.are {grid-area: are;}
+
+div.pri {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pri {grid-area: pri;}
+.rig {grid-area: rig;}
+.ari {grid-area: ari; 
+    margin-bottom: 20px;}
+
+div.pro {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50px;
+}
+.pro {grid-area: pro;}
+.rocky {grid-area: rock;}
+.aro {grid-area: aro; margin-bottom: 20px;}
+
+.name {
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+    background-color: #b4b4b4bd;
+    border-radius: 10px;
+    padding: 7px;
+    padding-bottom: 3.5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.abt {
+    padding: 5%;
+    font-weight: 600;
+    background-color: #b4b4b4bd;
+    border-radius: 10px;
+    max-width: 220px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .pets {
+   display: grid;
+   grid-template-columns: minmax(50px,1fr) 250px 250px minmax(50px,1fr);
+   grid-template-rows: repeat(10, 250px auto auto);
+   grid-template-areas: 
+  "... pbu pca." 
+  "... bu capt." 
+  "... abu aca." 
+
+  "... pcs pch ."
+  "... cas che ."
+  "... acs ach ."
+
+  ". pdo pek ..."
+  ". dol ek ..."
+  ". ado aek ..."
+
+  ". pja pje ."
+  ". jab jel ."
+  ". aja aje ."
+
+  ". pju pka ."
+  ". jul kab ."
+  ". aju aka ."
+
+  "... pko pli ."
+  "... kod lib ."
+  "... ako ali ."
+
+  "... plk plu ."
+  "... luk lun ."
+  "... alk alu ."
+
+  ". pma pmo ..."
+  ". mam mol ..."
+  ". ama amo ..."
+  
+  "... poz pre ." 
+  "... oz rem ." 
+  "... aoz are ."
+
+  ". pri pro ..."
+  ". rig rock ..."
+  ". ari aro ...";
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .pets {
+   display: grid;
+   grid-template-columns: minmax(50px,1fr) 250px minmax(50px,1fr);
+   grid-template-rows: repeat(20, 250px auto auto);
+   grid-template-areas: 
+  ".pbu" 
+  ".bu" 
+  ".abu"
+
+  ".pca" 
+  ".capt" 
+  ".aca" 
+
+  ".pcs"
+  ".cas"
+  ".acs"
+
+  ".pch"
+  ".che"
+  ".ach"
+
+  ". pdo"
+  ".dol"
+  ".ado"
+
+  ".pek" 
+  ".ek" 
+  ".aek" 
+
+  ".pja"
+  ".jab "
+  ".aja"
+
+  ".pje"
+  ".jel"
+  ".aje"
+
+  ".pju"
+  ".jul"
+  ".aju"
+
+  ".pka"
+  ".kab"
+  ".aka"
+
+  ".pko"
+  ".kod"
+  ".ako"
+
+  ".pli"
+  ".lib"
+  ".ali"
+
+  ".plk"
+  ".luk"
+  ".alk"
+
+  ".plu"
+  ".lun"
+  ".alu"
+
+  ".pma"
+  ".mam"
+  ".ama"
+
+  ".pmo "
+  ".mol"
+  ".amo "
+
+  ".poz"  
+  ".oz"  
+  ".aoz" 
+
+  ".pre" 
+  ".rem" 
+  ".are"
+
+  ".pri"
+  ".rig"
+  ".ari"
+
+  ".pro"
+  ".rock"
+  ".aro"
+    }
+}
+
+
+h3 {
+    font-size: calc(15px + 1.5vmin);
+    font-family: kodchasen;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 20px;
+    font-family: kodchasen;
+    text-transform: none;
+    margin-top: 0;
+}
+
+footer {
+    position: absolute;
+    background:  #f04545;
+    height: auto;
+    font-family: bellota;
+    color: #fff9f9;
+    z-index: 999;
+    width: 100%;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 500px 500px minmax(100px, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "... ftercont news ...";
+    align-items: center;
+    text-align: center;
+}
+
+.newslet {
+    grid-area: news;
+}
+
+.ftercont {
+    grid-area: ftercont;
+}
+
+.ftbttm {
+    grid-area: cpy;
+}
+
+
+.ftercont {
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.ftercont p{
+    max-width: 550px;
+    margin: 10px 10px 0 10px ;
+    line-height: 28px;
+    font-size: calc(10px + 1.1vmin);
+}
+
+.ftercont h2 {
+    margin-bottom: 30px;
+}
+
+.ftbttm {
+    background:  #f04545;
+}
+
+.ftbttm p{
+    font-size: 18px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+}
+
+.ftbttm span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+.newslet h2 {
+    font-size: calc(15px + 1.5vmin);
+    font-family: kodchasen;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.newslet p {
+    font-size: calc(10px + 1.1vmin);
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.newslet span:nth-child(2) {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.newslet form {
+    margin: 20px 0;
+}
+
+.newslet form input {
+    height: 40px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.newslet form button {
+    height: 40px;
+    width: 5rem;
+    color: #000;
+    background-color: #c0c0c0;
+    border: none;
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        display: grid;
+        grid-template-columns: 50px auto 50px;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        "... news ..."
+        "... ftercont ...";
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+} 
